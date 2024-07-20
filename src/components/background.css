@@ -1,0 +1,41 @@
+/* Keyframes for the rotation animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  /* Add a keyframe at 50% to create a scaling effect */
+  50% {
+    transform: rotate(180deg) scale(1.5); /* Rotates 180deg and scales up 10% */
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Styles for the gradient element */
+.gradient {
+  position: absolute;
+  z-index: 0;
+  width: 200px;
+  height: 200px;
+  filter: blur(100px);
+  background-image: linear-gradient(
+    #1856ca,
+    #6a82fb
+  ); /* Updated background colors */
+  animation: rotate 10s cubic-bezier(0.8, 0.2, 0.2, 0.8) alternate infinite;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+/* Media query for larger screens (720px and above) */
+@media (min-width: 720px) {
+  .gradient {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Smooth transition on viewport size change */
+* {
+  transition: all 0.25s ease-out;
+}
